@@ -35,14 +35,18 @@ class HomePage(Page):
 
   button_text = models.CharField(
         max_length=50,
+        # this is the holder text
         default='Read More',
         blank=False,
         help_text='Button text',
   )
 
   banner_background_image = models.ForeignKey(
+    # this is linking the default image - it uses wagtail standard image
         'wagtailimages.Image',
+        #
         blank=False,
+        # this means banner background image can be empty
         null=True,
         related_name='+',
         help_text='The banner background image',
