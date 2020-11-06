@@ -25,10 +25,13 @@
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body>
         {% wagtailuserbar %}
+        {% block banner %} {% endblock %}
 
+      <main is="content" class="container my-4" role="main">
         {% block content %}{% endblock %}
+      </main>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
