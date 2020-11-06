@@ -9,56 +9,27 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 class HomePage(Page):
   # pass measn its not doing amnything
     # pass
-  
-    # lead_text = models.CharField (
-    #   max_length=140, 
-    #   blank=True, 
-    #   help_text="Subheading text under banner title",
-    # )
+  #  these are the names of the column
+  #this is django as its coming from model.
 
-    # button = models.ForeignKey(
-    #   # selecting wagtail key from the page core
-    #   'wagtailcore.Page',
-    #   blank=True,
-    #   # can have nothing in databased
-    #   null=True,
-    #   related_name="+",
-    #   help_text="Select an optional page to link to",
-    #   # this tells django what to do when the link page has been deleted
-    #   on_delete=models.SET_NULL,
-    # )
-
-    # button_text = models.CharField(
-    #   max_length = 50,
-    #   default ='Read More',
-    #   # this alwasys has to be set even if button not sleected
-    #   blank = False, 
-    #   help_text = "Button text",
-
-    # )
-
-    # banner_background_image = models.ForeignKey(
-    #   # this is linking it tot he default image
-    #   'wagtailimages.Image',
-    #   blank=False, 
-    #   #  this means that this banner background image is allowed to be empty
-    #   null=True,
-    #   related_name="+",
-    #   help_text = "The Banner Background Image",
-    #   on_delete=models.SET_NULL,
-    # )
   lead_text = models.CharField(
+    # 150 chracter max
         max_length=140,
+        # it ca n be blank
         blank=True,
         help_text='Subheading text under the banner title',
   )
 
   button = models.ForeignKey(
+    # this adds a link to another wagtail page - this foreign key
         'wagtailcore.Page',
+        # this is optional
         blank=True,
+        # it can have nothing in database
         null=True,
         related_name='+',
         help_text='Select an optional page to link to',
+        # what do we do when the page we are linking to is deleted - set null
         on_delete=models.SET_NULL,
   )
 
@@ -68,6 +39,7 @@ class HomePage(Page):
         blank=False,
         help_text='Button text',
   )
+
   banner_background_image = models.ForeignKey(
         'wagtailimages.Image',
         blank=False,
